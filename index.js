@@ -1,56 +1,53 @@
-let index = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const carrossel = document.querySelector('.carrossel');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const cards = document.querySelectorAll('.carrossel .card-lancamento');
+    const radioBtns = document.querySelectorAll('.radio-btn');
 
-function mudarSlide(direcao) {
-    const slides = document.querySelector(".slides");
-    const slideElements = document.querySelectorAll(".card-lancamento");
-    const totalSlides = slideElements.length;
+    const totalCards = cards.length;
+    const cardsPorVez = 1;
+    let posicaoAtual = 0;
 
-    // Atualizar o índice de acordo com a direção
-    index += direcao;
+    function atualizarCarrossel() {
+        const larguraCard = carrossel.offsetWidth / cardsPorVez;
+        const deslocamento = -posicaoAtual * larguraCard * cardsPorVez;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
 
-    // Garantir que o índice esteja dentro dos limites
-    if (index < 0) {
-        index = totalSlides - 1;
-    } else if (index >= totalSlides) {
-        index = 0;
+        prevBtn.disabled = posicaoAtual === 0;
+        nextBtn.disabled = posicaoAtual >= Math.ceil(totalCards / cardsPorVez) - 1;
+
+        atualizarDots(posicaoAtual);
     }
 
-    // Movendo os slides horizontalmente
-    slides.style.transform = `translateX(${-index * 100}%)`;
-}
+    function atualizarDots(index) {
+        radioBtns.forEach(btn => btn.classList.remove('active'));
+        if (radioBtns[index]) {
+            radioBtns[index].classList.add('active');
+        }
+    }
 
-// Mostrar os primeiros 3 cards ao carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card-lancamento");
-    const totalSlides = cards.length;
-
-    // Deixe os primeiros 5 visíveis e o restante oculto
-    cards.forEach((card, i) => {
-        if (i < 5) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
+    nextBtn.addEventListener('click', function() {
+        if (posicaoAtual < Math.ceil(totalCards / cardsPorVez) - 1) {
+            posicaoAtual++;
+            atualizarCarrossel();
         }
     });
 
-    // Exibir o primeiro conjunto de 3 cards
-    slides.style.transform = "translateX(0%)";
+    prevBtn.addEventListener('click', function() {
+        if (posicaoAtual > 0) {
+            posicaoAtual--;
+            atualizarCarrossel();
+        }
+    });
+
+    radioBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            posicaoAtual = index;
+            atualizarCarrossel();
+        });
+    });
+
+    atualizarCarrossel();
+    window.addEventListener('resize', atualizarCarrossel);
 });
-
-
-const slides = document.querySelectorAll('.slide');
-const radioBtns = document.querySelectorAll('.radio-btn');
-
-// Função para mudar de slide
-function goToSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    radioBtns.forEach(btn => btn.classList.remove('active'));
-    
-    slides[n].classList.add('active');
-    radioBtns[n].classList.add('active')
-}
-
-
-
-
-
