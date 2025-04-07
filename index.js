@@ -1,40 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const carrossel = document.querySelector('.carrossel');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const cards = document.querySelectorAll('.carrossel .card-lancamento');
-    const radioBtns = document.querySelectorAll('.radio-btn');
+document.querySelectorAll('.carrossel-container').forEach(container => {
+    const carrossel = container.querySelector('.carrossel');
+    const prevBtn = container.querySelector('.prev');
+    const nextBtn = container.querySelector('.next');
+    const cards = container.querySelectorAll('.card-lancamento');
+    const radioBtns = container.querySelectorAll('.radio-btn');
 
-    const totalCards = cards.length;
     const cardsPorVez = 1;
+    const totalCards = cards.length;
     let posicaoAtual = 0;
 
     function atualizarCarrossel() {
         const larguraCard = carrossel.offsetWidth / cardsPorVez;
-        const deslocamento = -posicaoAtual * larguraCard * cardsPorVez;
+        const deslocamento = -posicaoAtual * larguraCard;
         carrossel.style.transform = `translateX(${deslocamento}px)`;
 
         prevBtn.disabled = posicaoAtual === 0;
         nextBtn.disabled = posicaoAtual >= Math.ceil(totalCards / cardsPorVez) - 1;
 
-        atualizarDots(posicaoAtual);
+        atualizarDots();
     }
 
-    function atualizarDots(index) {
-        radioBtns.forEach(btn => btn.classList.remove('active'));
-        if (radioBtns[index]) {
-            radioBtns[index].classList.add('active');
-        }
+    function atualizarDots() {
+        radioBtns.forEach((btn, i) => {
+            btn.classList.toggle('active', i === posicaoAtual);
+        });
     }
 
-    nextBtn.addEventListener('click', function() {
+    nextBtn.addEventListener('click', () => {
         if (posicaoAtual < Math.ceil(totalCards / cardsPorVez) - 1) {
             posicaoAtual++;
             atualizarCarrossel();
         }
     });
 
-    prevBtn.addEventListener('click', function() {
+    prevBtn.addEventListener('click', () => {
         if (posicaoAtual > 0) {
             posicaoAtual--;
             atualizarCarrossel();
@@ -42,12 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     radioBtns.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', () => {
             posicaoAtual = index;
             atualizarCarrossel();
         });
     });
-
+    
     atualizarCarrossel();
     window.addEventListener('resize', atualizarCarrossel);
 });
