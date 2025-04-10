@@ -106,11 +106,33 @@ header {
     gap: 8px;
 }
 
-input {
-    background: url("img/lupa-arredondada.png") no-repeat;
-    background-position: 450px center;
-    background-size: 20px; 
+
+.search-bar button {
+    position: absolute;
+    right: 250px;
+    top: 34%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2
 }
+
+.search-bar-img {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+}
+
+
+#search-text {
+    font-family: Nunito sans;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 700
+}
+
 
 .right-side {
     display: flex;
@@ -126,6 +148,8 @@ input {
 
 .search-bar {
     padding-right: 13rem;
+    position: relative;
+    height: 60px;
 }
 
 .container {

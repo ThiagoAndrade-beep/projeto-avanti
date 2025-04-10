@@ -1,3 +1,4 @@
+
 document.querySelectorAll('.carrossel-container').forEach(container => {
     const carrossel = container.querySelector('.carrossel');
     const prevBtn = container.querySelector('.prev');
@@ -46,7 +47,37 @@ document.querySelectorAll('.carrossel-container').forEach(container => {
             atualizarCarrossel();
         });
     });
-    
+
     atualizarCarrossel();
     window.addEventListener('resize', atualizarCarrossel);
 });
+
+
+// -------------------------search-------------------------------------//
+
+const searchBtn = document.getElementById("search-bar-btn");
+const searchInput = document.getElementById("search");
+const searchText = document.getElementById("search-text");
+
+
+searchBtn.addEventListener("click", () => {
+    const valor = searchInput.value.trim()
+
+    if(valor === "") {
+        searchText.innerHTML = "Digite algo válido no campo de busca"
+        searchText.style.color = "red"
+        return
+    }else {
+        searchText.innerHTML = `Você buscou por: ${searchInput.value}`
+        searchText.style.color = "#005CFF"
+    }
+
+    searchInput.value = ""
+});
+
+
+
+
+
+
+
