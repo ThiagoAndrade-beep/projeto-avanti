@@ -1,54 +1,81 @@
-let index = 0;
 
-function mudarSlide(direcao) {
-    const slides = document.querySelector(".slides");
-    const slideElements = document.querySelectorAll(".card-lancamento");
-    const totalSlides = slideElements.length;
+document.querySelectorAll('.carrossel-container').forEach(container => {
+    const carrossel = container.querySelector('.carrossel');
+    const prevBtn = container.querySelector('.prev');
+    const nextBtn = container.querySelector('.next');
+    const cards = container.querySelectorAll('.card-lancamento');
+    const radioBtns = container.querySelectorAll('.radio-btn');
 
-    // Atualizar o índice de acordo com a direção
-    index += direcao;
+    const cardsPorVez = 1;
+    const totalCards = cards.length;
+    let posicaoAtual = 0;
 
-    // Garantir que o índice esteja dentro dos limites
-    if (index < 0) {
-        index = totalSlides - 1;
-    } else if (index >= totalSlides) {
-        index = 0;
+    function atualizarCarrossel() {
+        const larguraCard = carrossel.offsetWidth / cardsPorVez;
+        const deslocamento = -posicaoAtual * larguraCard;
+        carrossel.style.transform = `translateX(${deslocamento}px)`;
+
+        prevBtn.disabled = posicaoAtual === 0;
+        nextBtn.disabled = posicaoAtual >= Math.ceil(totalCards / cardsPorVez) - 1;
+
+        atualizarDots();
     }
 
-    // Movendo os slides horizontalmente
-    slides.style.transform = `translateX(${-index * 100}%)`;
-}
+    function atualizarDots() {
+        radioBtns.forEach((btn, i) => {
+            btn.classList.toggle('active', i === posicaoAtual);
+        });
+    }
 
-// Mostrar os primeiros 3 cards ao carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card-lancamento");
-    const totalSlides = cards.length;
-
-    // Deixe os primeiros 5 visíveis e o restante oculto
-    cards.forEach((card, i) => {
-        if (i < 5) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
+    nextBtn.addEventListener('click', () => {
+        if (posicaoAtual < Math.ceil(totalCards / cardsPorVez) - 1) {
+            posicaoAtual++;
+            atualizarCarrossel();
         }
     });
 
-    // Exibir o primeiro conjunto de 3 cards
-    slides.style.transform = "translateX(0%)";
+    prevBtn.addEventListener('click', () => {
+        if (posicaoAtual > 0) {
+            posicaoAtual--;
+            atualizarCarrossel();
+        }
+    });
+
+    radioBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            posicaoAtual = index;
+            atualizarCarrossel();
+        });
+    });
+
+    atualizarCarrossel();
+    window.addEventListener('resize', atualizarCarrossel);
 });
 
 
-const slides = document.querySelectorAll('.slide');
-const radioBtns = document.querySelectorAll('.radio-btn');
+// -------------------------search-------------------------------------//
 
-// Função para mudar de slide
-function goToSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    radioBtns.forEach(btn => btn.classList.remove('active'));
-    
-    slides[n].classList.add('active');
-    radioBtns[n].classList.add('active')
-}
+const searchBtn = document.getElementById("search-bar-btn");
+const searchInput = document.getElementById("search");
+const searchText = document.getElementById("search-text");
+
+
+searchBtn.addEventListener("click", () => {
+    const valor = searchInput.value.trim()
+
+    if(valor === "") {
+        searchText.innerHTML = "Digite algo válido no campo de busca"
+        searchText.style.color = "red"
+        return
+    }else {
+        searchText.innerHTML = `Você buscou por: ${searchInput.value}`
+        searchText.style.color = "#005CFF"
+    }
+
+    searchInput.value = ""
+});
+
+
 
 
 

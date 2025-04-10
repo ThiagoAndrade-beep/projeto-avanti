@@ -106,11 +106,33 @@ header {
     gap: 8px;
 }
 
-input {
-    background: url("img/lupa-arredondada.png") no-repeat;
-    background-position: 450px center;
-    background-size: 20px; 
+
+.search-bar button {
+    position: absolute;
+    right: 250px;
+    top: 34%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2
 }
+
+.search-bar-img {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+}
+
+
+#search-text {
+    font-family: Nunito sans;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 700
+}
+
 
 .right-side {
     display: flex;
@@ -126,6 +148,8 @@ input {
 
 .search-bar {
     padding-right: 13rem;
+    position: relative;
+    height: 60px;
 }
 
 .container {
@@ -182,7 +206,7 @@ input {
     margin-top: 10px;
 }
 
-.card-lancamento {
+/* .card-lancamento {
     width: 280px;
     background-color: white;
     border-radius: 8px;
@@ -193,11 +217,42 @@ input {
     margin-top: 130px;
     padding: 15px;
     margin: 10px;
+} */
+
+.carrossel-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1400px;
+  }
+  
+  .carrossel {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 10px;
+  }
+  
+  .carrossel .card-lancamento {
+    width: 20%; /* 5 por vez */
+    flex-shrink: 0;
+    padding: 0 10px; /* espaçamento opcional entre os cards */
+    box-sizing: border-box;
+    
+}
+
+.card-lancamento {
+    background-color: white;
+    border-radius: 8px;
+    border: solid 1px #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
 }
 
 .badge {
-    position: absolute;
-    top: 10px;
+    width: 44px;
+    margin-top: 8px;
     left: 10px;
     background-color: #00264E;
     color: white;
@@ -299,27 +354,9 @@ input {
     transition: background-color 0.3s;
 }
 
-.slider {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: auto;
-    margin-top: 80px;
-    
-  }
-
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.prev, .next {
+.carrossel-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     border: none;
     cursor: pointer;
     width: 40px;
@@ -327,18 +364,21 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: white;
     z-index: 10;
-}
-
-.prev {
-    left: 200px;
-}
-
-.next {
-    right: 200px;
-}
+    background: none;
+  }
+  
+  .carrossel-btn.prev {
+    left: -5px;
+  }
+  
+  .carrossel-btn.next {
+    right: -4px;
+  }
+  
+  .carrossel-btn:disabled {
+    cursor: not-allowed;
+  }
 
 .radio-buttons {
     display: flex;
@@ -379,9 +419,10 @@ input {
     height: auto;
  }
   .controls {
-    margin-top: 10px;
+    margin-top: 16px;
     display: flex;
     gap: 10px;
+    justify-content: center;
  }
   
   .radio-btn {
@@ -955,4 +996,3 @@ footer {
     height: 38px;
     margin-bottom: 100px;
 }
-
