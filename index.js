@@ -76,6 +76,24 @@ searchBtn.addEventListener("click", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-category');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuButton.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        menuButton.style.color = "#005CFF"
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        menuButton.style.color = "black"
+    });
+});
+
 
 
 
