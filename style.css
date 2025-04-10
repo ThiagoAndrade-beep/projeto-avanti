@@ -1072,6 +1072,7 @@ footer {
     z-index: 1000;
     flex: 1;
     padding: 20px;
+    display: none;
 }
 
 .sidebar.open ~ .menu-categories {
@@ -1079,6 +1080,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 
