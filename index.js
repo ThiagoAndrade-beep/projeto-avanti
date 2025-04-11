@@ -76,6 +76,44 @@ searchBtn.addEventListener("click", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-category');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const teste = document.querySelector(".menu-categories")
+
+    menuButton.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        teste.style.display = "block"
+        menuButton.style.color = "#005CFF"
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        teste.style.display = "none"
+        menuButton.style.color = "black"
+    });
+});
+
+document.querySelectorAll('.column h4').forEach(title => {
+    title.addEventListener('click', () => {
+      const list = title.nextElementSibling;
+      const isOpen = list.classList.contains('active');
+      
+      document.querySelectorAll('.column ul').forEach(item => {
+        item.classList.remove('active');
+        item.previousElementSibling.classList.remove('active');
+      });
+      
+      if (!isOpen) {
+        list.classList.add('active');
+        title.classList.add('active');
+      }
+    });
+  });
+
 
 
 
