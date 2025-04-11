@@ -1591,3 +1591,25 @@ footer {
         gap: 45px;
       }
   }
+
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .super-sale {
+      position: relative; /* Cria contexto para posicionamento */
+      max-width: 1500px; /* Limita a largura máxima */
+      margin: 0 auto; /* Centraliza o container */
+      padding: 60px 40px; /* Aumenta o padding em telas grandes */
+      width: 100%;
+      margin-right: 40px;
+    }
+  
+    .super-sale-img {
+      max-width: 44%; /* Controla o tamanho da imagem */
+      box-sizing: border-box;
+      margin-left: -60px;
+    }
+  
+    .super-sale-content {
+      max-width: 95%; /* Limita a largura do texto */
+      padding-left: -90px; /* Espaço entre imagem e texto */
+    }
+  }
