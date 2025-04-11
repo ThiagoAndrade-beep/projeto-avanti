@@ -97,6 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.querySelectorAll('.column h4').forEach(title => {
+    title.addEventListener('click', () => {
+      const list = title.nextElementSibling;
+      const isOpen = list.classList.contains('active');
+      
+      document.querySelectorAll('.column ul').forEach(item => {
+        item.classList.remove('active');
+        item.previousElementSibling.classList.remove('active');
+      });
+      
+      if (!isOpen) {
+        list.classList.add('active');
+        title.classList.add('active');
+      }
+    });
+  });
+
 
 
 
