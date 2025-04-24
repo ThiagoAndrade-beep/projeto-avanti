@@ -709,6 +709,10 @@ header {
     color: #005CFF;
 }
 
+.mobile-menu-btn {
+    display: none;
+}
+
 
 
 footer {
@@ -1127,7 +1131,7 @@ footer {
     }
 
     .carrossel .card-lancamento {
-        width: 180px;
+        width: 200px;
         height: 426px;
         padding: 10px;
     }
@@ -1395,6 +1399,54 @@ footer {
       .tags-logos {
         gap: 45px;
       }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -320px; /* atualize para a nova largura total */
+        width: 320px; /* 160 + 160 */
+        height: 100%;
+        background-color: transparent; /* transparente porque as cores já estão nos filhos */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+    
+    .menu-content {
+        display: flex;
+        height: 52%;
+    }
+    
+    .menu-departament {
+        width: 160px;
+        background-color: #ccc;
+        padding: 20px;
+    }
+
+    .menu-categories {
+        top: 20px;
+        left: 170px;
+        width: 180px;
+        height: 50.5%;
+        background-color: #FFFFFF;
+        flex: 1;
+        z-index: 10;
+        padding: 20px;
+        display: none;
+    }
+    
+    .categories {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    
   }
 
   @media (min-width: 1200px) and (max-width: 1500px) {
