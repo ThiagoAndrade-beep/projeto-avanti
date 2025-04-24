@@ -1421,6 +1421,7 @@ footer {
     .menu-content {
         display: flex;
         height: 52%;
+        width: 100%;
     }
     
     .menu-departament {
