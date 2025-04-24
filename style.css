@@ -1012,8 +1012,8 @@ footer {
         grid-template-columns: 40px 1fr 40px;
         align-items: center;
         padding: 10px 15px 5px;
-        gap: 10px;
-        width: 105%;
+        gap: 8px;
+        width: 100%;
     }
 
     .left-side {
@@ -1501,7 +1501,7 @@ footer {
 
     .carrossel-texto {
         display: flex;
-        gap: 55%;
+        gap: 52%;
         margin-bottom: 15px;
     }
 
