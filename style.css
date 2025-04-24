@@ -1043,7 +1043,7 @@ footer {
     }
 
     .search-bar input {
-        width: 100%;
+        width: 110%;
         padding: 10px 15px;
         border-radius: 11px;
         border: 1px solid #ddd;
@@ -1052,7 +1052,7 @@ footer {
 
     .search-bar button {
         position: absolute;
-        right: 230px;
+        right: 200px;
         top: 31%;
         transform: translateY(-50%);
         background: none;
