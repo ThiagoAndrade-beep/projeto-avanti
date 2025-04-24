@@ -35,7 +35,6 @@ header {
 .preco {
     background-color: #6220C1;
     border-radius: 6px;
-    font-weight: 800;
 }
 
 .desconto i {
@@ -148,8 +147,28 @@ header {
     align-items: center;
     gap: 30px;
     margin-left: auto;
-    /* Move tudo para a direita */
+}
 
+.cart {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #005CFF;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: Nunito sans;
 }
 
 .left-side {
@@ -238,6 +257,26 @@ header {
     box-sizing: border-box;
     
 
+}
+
+.carrossel-texto {
+    display: flex;
+    gap: 87%;
+    margin-bottom: 20px;
+}
+
+.carrossel-texto p {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Nunito sans;
+}
+
+.carrossel-texto a {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Nunito sans;
+    color: #303030;
+    text-decoration: none;
 }
 
 .card-lancamento {
@@ -833,7 +872,10 @@ footer {
     line-height: 1.6;
     font-weight: 400;
     font-size: 12px;
-    white-space: pre-line;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    margin-left: 90px;
 }
 
 .tags-logos {
@@ -1139,10 +1181,6 @@ footer {
         height: 158px;
     }
 
-    .card-desconto a {
-        text-decoration: none;
-    }
-
     .content-mug {
         display: flex;
         flex-direction: column;
@@ -1398,6 +1436,17 @@ footer {
         gap: 45px;
       }
 
+      .tag {
+        font-family: Nunito sans;
+        line-height: 1.6;
+        font-weight: 400;
+        font-size: 12px;
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+        margin-left: 0px;
+    }
+
       .sidebar {
         position: fixed;
         top: 0;
@@ -1445,7 +1494,22 @@ footer {
         flex-direction: column;
         gap: 1px;
     }
-    
+
+    .second-carrossel {
+        display: none;
+    }
+
+    .carrossel-texto {
+        display: flex;
+        gap: 55%;
+        margin-bottom: 15px;
+    }
+
+    .carrossel-texto a {
+        text-decoration: underline;
+    }
+
+
   }
 
   @media (min-width: 1200px) and (max-width: 1500px) {
