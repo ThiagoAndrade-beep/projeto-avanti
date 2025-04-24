@@ -1501,7 +1501,7 @@ footer {
 
     .carrossel-texto {
         display: flex;
-        gap: 52%;
+        gap: 50%;
         margin-bottom: 15px;
     }
 
