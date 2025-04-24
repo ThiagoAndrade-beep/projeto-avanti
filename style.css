@@ -1509,6 +1509,12 @@ footer {
         text-decoration: underline;
     }
 
+    .cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -2px;
+    }
+
 
   }
 
