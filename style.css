@@ -27,7 +27,7 @@ header {
     font-size: 14px;
     line-height: 1.4;
     margin: 0;
-    white-space: nowrap; /* Impede a quebra de linha */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -77,7 +77,6 @@ header {
 
 .profile img {
     margin-right: 4px;
-    /* Espaçamento apenas à direita do ícone */
 }
 
 
@@ -544,9 +543,7 @@ header {
     font-family: Nunito Sans, sans-serif;
     display: flex;
     align-items: center;
-    /* Centraliza os itens verticalmente */
     justify-content: space-between;
-    /* Distribui os itens corretamente */
     max-width: 1200px;
     width: 100%;
     height: auto;
@@ -574,7 +571,6 @@ header {
 .information-content {
     display: flex;
     align-items: center;
-    /* Alinha os ícones com os textos */
     margin-bottom: 45px;
     padding: 15px 0px;
     padding-right: 50px;
@@ -598,10 +594,8 @@ header {
 
 .information-img {
     flex: 1;
-    /* Faz a imagem ocupar o espaço restante */
     display: flex;
     justify-content: center;
-    /* Centraliza a imagem */
     align-items: center;
 }
 
@@ -984,13 +978,13 @@ footer {
     gap: 30px;
 }
 
-/* ============== MOBILE STYLES (max-width: 767px) ============== */
 @media (max-width: 767px) {
 
     /* ----- GERAL ----- */
     body {
         font-size: 14px;
         line-height: 1.4;
+        box-sizing: border-box;
     }
 
     /* ----- HEADER ----- */
@@ -1315,26 +1309,6 @@ footer {
         margin-left: 20px;
     }
 
-    /* .footer-container {
-        display: flex;
-        flex-direction: column;
-        width: 391px;
-    }
-
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .column ul {
-        display: none;
-    }
-
-    .column h4 {
-        font-size: 19px;
-        font-weight: 700;
-    } */
-
     .footer-container {
         width: 100%;
         background: #f5f5f5;
@@ -1450,10 +1424,10 @@ footer {
       .sidebar {
         position: fixed;
         top: 0;
-        left: -320px; /* atualize para a nova largura total */
-        width: 320px; /* 160 + 160 */
+        left: -320px;
+        width: 320px; 
         height: 100%;
-        background-color: transparent; /* transparente porque as cores já estão nos filhos */
+        background-color: transparent;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         transition: left 0.3s ease;
         z-index: 1001;
