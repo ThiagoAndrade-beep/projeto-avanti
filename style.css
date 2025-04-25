@@ -991,6 +991,7 @@ footer {
     body {
         font-size: 14px;
         line-height: 1.4;
+        box-sizing: border-box;
     }
 
     /* ----- HEADER ----- */
@@ -1314,26 +1315,6 @@ footer {
         height: 48px;
         margin-left: 20px;
     }
-
-    /* .footer-container {
-        display: flex;
-        flex-direction: column;
-        width: 391px;
-    }
-
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .column ul {
-        display: none;
-    }
-
-    .column h4 {
-        font-size: 19px;
-        font-weight: 700;
-    } */
 
     .footer-container {
         width: 100%;
